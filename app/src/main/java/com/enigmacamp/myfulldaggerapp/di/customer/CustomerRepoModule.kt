@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-abstract class CustomerModule {
+abstract class CustomerRepoModule {
     @Binds
     abstract fun bindsCustomerRepository(customerRepositoryImpl: CustomerRepositoryImpl): CustomerRepository
 }

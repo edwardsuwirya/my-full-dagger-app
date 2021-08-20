@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor(
+class MainActivityViewModel(
     private val authenticationRepository: AuthenticationRepository,
     private val customerRepository: CustomerRepository
 ) : ViewModel() {
