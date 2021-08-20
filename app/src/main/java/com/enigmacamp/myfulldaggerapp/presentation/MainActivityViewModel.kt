@@ -1,5 +1,6 @@
 package com.enigmacamp.myfulldaggerapp.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.enigmacamp.myfulldaggerapp.data.api.request.AuthenticationRequest
@@ -26,6 +27,7 @@ class MainActivityViewModel(
                     )
                 )
             }
+            Log.d("Full-Dagger", "customerLogin: $isAuthenticated")
         }
 
     }
