@@ -7,4 +7,5 @@ import javax.inject.Inject
 
 class CustomerRepositoryImpl @Inject constructor(private val db: AppDatabase) : CustomerRepository {
     override fun registerNewCustomer(customer: Customer) = db.customerDao().insert(customer)
+    override fun customerById(id: Int) = db.customerDao().findById(id)
 }

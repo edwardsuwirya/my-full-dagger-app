@@ -1,6 +1,7 @@
 package com.enigmacamp.myfulldaggerapp.presentation
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.enigmacamp.myfulldaggerapp.data.api.request.AuthenticationRequest
@@ -9,12 +10,15 @@ import com.enigmacamp.myfulldaggerapp.data.repository.AuthenticationRepository
 import com.enigmacamp.myfulldaggerapp.data.repository.CustomerRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class MainActivityViewModel(
     private val authenticationRepository: AuthenticationRepository,
     private val customerRepository: CustomerRepository
 ) : ViewModel() {
+    private var _isAuthenticated = MutableLiveData<Boolean>()
+    val isAuthenticated: LiveData<Boolean>
+        get() = _isAuthenticated
+
     fun customerLogin(userName: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val isAuthenticated =
@@ -27,8 +31,11 @@ class MainActivityViewModel(
                         gender = "L"
                     )
                 )
+                _isAuthenticated.postValue(true)
+            } else {
+                _isAuthenticated.postValue(false)
             }
-            Log.d("Full-Dagger", "customerLogin: $isAuthenticated")
+
         }
 
     }
