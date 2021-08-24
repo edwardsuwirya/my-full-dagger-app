@@ -67,3 +67,8 @@ fun DependencyHandler.androidUnitTest(){
     androidTest(Dependencies.JUNIT_ANDROID)
     androidTest(Dependencies.ESPRESSO)
 }
+
+fun DependencyHandler.navigation(){
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.NAVIGATION_UI)
+}

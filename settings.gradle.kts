@@ -1,2 +1,8 @@
 rootProject.name = "My Full Dagger App"
-include("app", "core", "authenticationFeature", "customerFeature")
+include(
+    "app",
+    "core",
+    "authenticationFeature",
+    "customerFeature",
+    "navigation"
+)

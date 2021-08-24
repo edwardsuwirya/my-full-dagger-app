@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -9,18 +9,15 @@ android {
     buildToolsVersion = Versions.BUILD_TOOL_VERSION
 
     defaultConfig {
-        applicationId = "com.enigmacamp.myfulldaggerapp"
         minSdkVersion(Versions.MIN_SDK_VERSION)
         targetSdkVersion(Versions.TARGET_SDK_VERSION)
         versionCode(Versions.VERSION_CODE)
         versionName = Versions.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.com.enigmacamp.buildSrc.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -40,21 +37,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":customerFeature"))
-    implementation(project(":core"))
-    implementation(project(":authenticationFeature"))
-    implementation(project(":customerFeature"))
-    implementation(project(":navigation"))
-
-    dagger()
-    daggerAndroid()
-    room()
-    retrofit()
-    coroutine()
-    lifecycle()
+    navigation()
     core()
-    ui()
-
-    unitTest()
-    androidUnitTest()
 }

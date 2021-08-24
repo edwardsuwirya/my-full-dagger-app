@@ -7,7 +7,7 @@ buildscript {
     dependencies {
         classpath(Dependencies.ANDROID_GRADLE_TOOL)
         classpath(Dependencies.KOTLIN_GRADLE_PLUGIN)
-
+        classpath(Dependencies.NAVIGATION_SAFE_ARGS)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

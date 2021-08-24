@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":navigation"))
 
     dagger()
     daggerAndroid()
