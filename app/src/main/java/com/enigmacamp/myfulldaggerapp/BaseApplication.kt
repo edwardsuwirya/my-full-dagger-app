@@ -1,7 +1,10 @@
 package com.enigmacamp.myfulldaggerapp
 
+import com.enigmacamp.authenticationfeature.di.authentication.AuthenticationComponent
 import com.enigmacamp.authenticationfeature.di.authentication.DaggerAuthenticationComponent
 import com.enigmacamp.core.di.data.DaggerDataComponent
+import com.enigmacamp.core.di.data.DataComponent
+import com.enigmacamp.customerfeature.di.customer.CustomerComponent
 import com.enigmacamp.customerfeature.di.customer.DaggerCustomerComponent
 import com.enigmacamp.myfulldaggerapp.di.app.DaggerAppComponent
 import dagger.android.AndroidInjector
@@ -13,15 +16,15 @@ class BaseApplication : DaggerApplication() {
             .customerComponent(provideCustomerComponent()).build()
     }
 
-    private fun provideDataComponent(): com.enigmacamp.core.di.data.DataComponent {
+    private fun provideDataComponent(): DataComponent {
         return DaggerDataComponent.builder().application(this).build()
     }
 
-    private fun provideAuthComponent(): com.enigmacamp.authenticationfeature.di.authentication.AuthenticationComponent {
+    private fun provideAuthComponent(): AuthenticationComponent {
         return DaggerAuthenticationComponent.builder().dataComponent(provideDataComponent()).build()
     }
 
-    private fun provideCustomerComponent(): com.enigmacamp.customerfeature.di.customer.CustomerComponent {
+    private fun provideCustomerComponent(): CustomerComponent {
         return DaggerCustomerComponent.builder().dataComponent(provideDataComponent()).build()
     }
 }

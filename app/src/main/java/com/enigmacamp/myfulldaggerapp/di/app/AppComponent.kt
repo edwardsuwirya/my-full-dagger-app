@@ -13,7 +13,7 @@ import dagger.android.AndroidInjector
     modules = [
         AndroidInjectionModule::class,
         AppModule::class],
-    dependencies = [com.enigmacamp.customerfeature.di.customer.CustomerComponent::class, com.enigmacamp.authenticationfeature.di.authentication.AuthenticationComponent::class]
+    dependencies = [CustomerComponent::class, AuthenticationComponent::class]
 )
 interface AppComponent : AndroidInjector<BaseApplication> {
 

@@ -1,8 +1,8 @@
 package com.enigmacamp.authenticationfeature.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.enigmacamp.authenticationfeature.databinding.ActivityAuthenticationBinding
 import com.enigmacamp.core.presentation.ViewModelFactoryBase
@@ -11,6 +11,7 @@ import javax.inject.Inject
 
 class AuthenticationActivity : DaggerAppCompatActivity() {
     private lateinit var binding: ActivityAuthenticationBinding
+
     @Inject
     lateinit var viewModel: AuthenticationActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +31,15 @@ class AuthenticationActivity : DaggerAppCompatActivity() {
         viewModel.isAuthenticated.observe(this, {
             if (it) {
                 Log.d("Full-Dagger", "customerLogin: $it")
-//                startActivity(Intent(this, NextActivity::class.java))
+//                startActivity(Intent(this, CustomerActivity::class.java))
 //                finish()
+                val intent = Intent()
+                intent.setClassName(
+                    this,
+                    "com.enigmacamp.customerfeature.presentation.CustomerActivity"
+                )
+                startActivity(intent)
+                finish()
             }
         })
     }

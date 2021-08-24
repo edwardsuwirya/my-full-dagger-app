@@ -1,5 +1,0 @@
-rootProject.name = "My Full Dagger App"
-include ':app'
-include ':core'
-include ':authenticationFeature'
-include ':customerFeature'
