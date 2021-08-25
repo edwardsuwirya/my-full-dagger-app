@@ -3,7 +3,6 @@
     package="com.enigmacamp.authenticationfeature">
 
     <application>
-        <activity android:name=".presentation.AuthenticationActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    id("kotlin-android")
 }
 
 android {
@@ -47,6 +48,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":navigation"))
 
+    navigation()
     dagger()
     daggerAndroid()
     room()

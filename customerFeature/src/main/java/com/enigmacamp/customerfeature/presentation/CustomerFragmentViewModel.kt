@@ -9,7 +9,7 @@ import com.enigmacamp.customerfeature.data.repository.CustomerRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CustomerActivityViewModel(private val customerRepository: CustomerRepository) : ViewModel() {
+class CustomerFragmentViewModel(private val customerRepository: CustomerRepository) : ViewModel() {
     private var _customerLiveData = MutableLiveData<Customer>()
 
     val customerLiveData: LiveData<Customer>

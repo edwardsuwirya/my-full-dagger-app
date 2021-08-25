@@ -3,7 +3,6 @@
     package="com.enigmacamp.customerfeature">
 
     <application>
-        <activity android:name=".presentation.CustomerActivity"></activity>
     </application>
 
 </manifest>
